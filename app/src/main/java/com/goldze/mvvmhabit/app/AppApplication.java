@@ -5,9 +5,9 @@ import com.goldze.mvvmhabit.R;
 import com.goldze.mvvmhabit.ui.login.LoginActivity;
 import com.squareup.leakcanary.LeakCanary;
 
-import me.goldze.mvvmhabit.base.BaseApplication;
-import me.goldze.mvvmhabit.crash.CaocConfig;
-import me.goldze.mvvmhabit.utils.KLog;
+import com.leewg.mvvm.base.BaseApplication;
+import com.leewg.mvvm.crash.CaocConfig;
+import com.leewg.mvvm.utils.KLog;
 
 /**
  * Created by goldze on 2017/7/16.

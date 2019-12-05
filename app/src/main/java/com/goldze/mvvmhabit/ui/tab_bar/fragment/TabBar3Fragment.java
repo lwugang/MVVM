@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import com.goldze.mvvmhabit.BR;
 import com.goldze.mvvmhabit.R;
 
-import me.goldze.mvvmhabit.base.BaseFragment;
+import com.leewg.mvvm.base.BaseFragment;
 
 /**
  * Created by goldze on 2018/7/18.

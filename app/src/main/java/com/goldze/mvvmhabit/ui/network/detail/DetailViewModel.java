@@ -6,7 +6,7 @@ import android.support.annotation.NonNull;
 
 import com.goldze.mvvmhabit.entity.DemoEntity;
 
-import me.goldze.mvvmhabit.base.BaseViewModel;
+import com.leewg.mvvm.base.BaseViewModel;
 
 /**
  * Created by goldze on 2017/7/17.

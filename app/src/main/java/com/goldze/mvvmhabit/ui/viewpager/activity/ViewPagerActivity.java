@@ -11,8 +11,8 @@ import com.goldze.mvvmhabit.databinding.FragmentViewpagerBinding;
 import com.goldze.mvvmhabit.ui.viewpager.adapter.ViewPagerBindingAdapter;
 import com.goldze.mvvmhabit.ui.viewpager.vm.ViewPagerViewModel;
 
-import me.goldze.mvvmhabit.base.BaseActivity;
-import me.goldze.mvvmhabit.utils.ToastUtils;
+import com.leewg.mvvm.base.BaseActivity;
+import com.leewg.mvvm.utils.ToastUtils;
 
 /**
  * ViewPager绑定的例子, 更多绑定方式，请参考 https://github.com/evant/binding-collection-adapter

@@ -6,10 +6,10 @@ import android.databinding.ObservableInt;
 import android.support.annotation.NonNull;
 import android.view.View;
 
-import me.goldze.mvvmhabit.base.BaseModel;
-import me.goldze.mvvmhabit.base.BaseViewModel;
-import me.goldze.mvvmhabit.binding.command.BindingAction;
-import me.goldze.mvvmhabit.binding.command.BindingCommand;
+import com.leewg.mvvm.base.BaseModel;
+import com.leewg.mvvm.base.BaseViewModel;
+import com.leewg.mvvm.binding.command.BindingAction;
+import com.leewg.mvvm.binding.command.BindingCommand;
 
 /**
  * Create Author：goldze

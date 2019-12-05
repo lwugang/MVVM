@@ -15,8 +15,8 @@ import com.goldze.mvvmhabit.ui.base.adapter.BaseFragmentPagerAdapter;
 
 import java.util.List;
 
-import me.goldze.mvvmhabit.base.BaseFragment;
-import me.goldze.mvvmhabit.base.BaseViewModel;
+import com.leewg.mvvm.base.BaseFragment;
+import com.leewg.mvvm.base.BaseViewModel;
 
 /**
  * Created by goldze on 2017/7/17.

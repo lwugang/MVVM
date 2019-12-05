@@ -16,9 +16,9 @@ import com.goldze.mvvmhabit.R;
 import com.goldze.mvvmhabit.app.AppViewModelFactory;
 import com.goldze.mvvmhabit.databinding.FragmentNetworkBinding;
 
-import me.goldze.mvvmhabit.base.BaseFragment;
-import me.goldze.mvvmhabit.utils.MaterialDialogUtils;
-import me.goldze.mvvmhabit.utils.ToastUtils;
+import com.leewg.mvvm.base.BaseFragment;
+import com.leewg.mvvm.utils.MaterialDialogUtils;
+import com.leewg.mvvm.utils.ToastUtils;
 import me.tatarka.bindingcollectionadapter2.BindingRecyclerViewAdapter;
 
 /**

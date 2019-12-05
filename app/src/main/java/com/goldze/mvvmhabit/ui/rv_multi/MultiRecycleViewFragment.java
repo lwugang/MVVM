@@ -9,7 +9,7 @@ import com.goldze.mvvmhabit.BR;
 import com.goldze.mvvmhabit.R;
 import com.goldze.mvvmhabit.databinding.FragmentMultiRvBinding;
 
-import me.goldze.mvvmhabit.base.BaseFragment;
+import com.leewg.mvvm.base.BaseFragment;
 import me.tatarka.bindingcollectionadapter2.BindingRecyclerViewAdapter;
 
 /**

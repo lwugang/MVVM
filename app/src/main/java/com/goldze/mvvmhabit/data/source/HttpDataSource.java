@@ -3,7 +3,7 @@ package com.goldze.mvvmhabit.data.source;
 import com.goldze.mvvmhabit.entity.DemoEntity;
 
 import io.reactivex.Observable;
-import me.goldze.mvvmhabit.http.BaseResponse;
+import com.leewg.mvvm.http.BaseResponse;
 
 /**
  * Created by goldze on 2019/3/26.

@@ -8,8 +8,8 @@ import com.goldze.mvvmhabit.data.source.LocalDataSource;
 import com.goldze.mvvmhabit.entity.DemoEntity;
 
 import io.reactivex.Observable;
-import me.goldze.mvvmhabit.base.BaseModel;
-import me.goldze.mvvmhabit.http.BaseResponse;
+import com.leewg.mvvm.base.BaseModel;
+import com.leewg.mvvm.http.BaseResponse;
 
 /**
  * MVVM的Model层，统一模块的数据仓库，包含网络数据和本地数据（一个应用可以有多个Repositor）

@@ -1,6 +1,6 @@
 package com.goldze.mvvmhabit.entity;
 
-import me.goldze.mvvmhabit.binding.viewadapter.spinner.IKeyAndValue;
+import com.leewg.mvvm.binding.viewadapter.spinner.IKeyAndValue;
 
 /**
  * Created by goldze on 2017/7/17.

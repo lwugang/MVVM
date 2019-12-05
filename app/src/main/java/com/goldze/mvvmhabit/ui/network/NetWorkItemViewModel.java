@@ -10,10 +10,10 @@ import com.goldze.mvvmhabit.R;
 import com.goldze.mvvmhabit.entity.DemoEntity;
 import com.goldze.mvvmhabit.ui.network.detail.DetailFragment;
 
-import me.goldze.mvvmhabit.base.ItemViewModel;
-import me.goldze.mvvmhabit.binding.command.BindingAction;
-import me.goldze.mvvmhabit.binding.command.BindingCommand;
-import me.goldze.mvvmhabit.utils.ToastUtils;
+import com.leewg.mvvm.base.ItemViewModel;
+import com.leewg.mvvm.binding.command.BindingAction;
+import com.leewg.mvvm.binding.command.BindingCommand;
+import com.leewg.mvvm.utils.ToastUtils;
 
 /**
  * Created by goldze on 2017/7/17.

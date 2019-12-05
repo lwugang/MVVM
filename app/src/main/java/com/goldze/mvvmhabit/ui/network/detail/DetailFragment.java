@@ -9,7 +9,7 @@ import com.goldze.mvvmhabit.R;
 import com.goldze.mvvmhabit.databinding.FragmentDetailBinding;
 import com.goldze.mvvmhabit.entity.DemoEntity;
 
-import me.goldze.mvvmhabit.base.BaseFragment;
+import com.leewg.mvvm.base.BaseFragment;
 
 /**
  * Created by goldze on 2017/7/17.

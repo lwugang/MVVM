@@ -7,13 +7,12 @@ import android.support.annotation.NonNull;
 
 import com.goldze.mvvmhabit.BR;
 import com.goldze.mvvmhabit.R;
-import com.goldze.mvvmhabit.ui.viewpager.adapter.ViewPagerBindingAdapter;
 
-import me.goldze.mvvmhabit.base.BaseViewModel;
-import me.goldze.mvvmhabit.binding.command.BindingCommand;
-import me.goldze.mvvmhabit.binding.command.BindingConsumer;
-import me.goldze.mvvmhabit.bus.event.SingleLiveEvent;
-import me.goldze.mvvmhabit.utils.ToastUtils;
+import com.leewg.mvvm.base.BaseViewModel;
+import com.leewg.mvvm.binding.command.BindingCommand;
+import com.leewg.mvvm.binding.command.BindingConsumer;
+import com.leewg.mvvm.bus.event.SingleLiveEvent;
+import com.leewg.mvvm.utils.ToastUtils;
 import me.tatarka.bindingcollectionadapter2.BindingViewPagerAdapter;
 import me.tatarka.bindingcollectionadapter2.ItemBinding;
 

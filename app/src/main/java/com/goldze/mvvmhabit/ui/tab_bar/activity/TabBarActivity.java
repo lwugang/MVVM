@@ -16,8 +16,8 @@ import com.goldze.mvvmhabit.ui.tab_bar.fragment.TabBar4Fragment;
 import java.util.ArrayList;
 import java.util.List;
 
-import me.goldze.mvvmhabit.base.BaseActivity;
-import me.goldze.mvvmhabit.base.BaseViewModel;
+import com.leewg.mvvm.base.BaseActivity;
+import com.leewg.mvvm.base.BaseViewModel;
 import me.majiajie.pagerbottomtabstrip.NavigationController;
 import me.majiajie.pagerbottomtabstrip.listener.OnTabItemSelectedListener;
 

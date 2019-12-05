@@ -3,7 +3,7 @@ package com.goldze.mvvmhabit.data.source.local;
 import com.goldze.mvvmhabit.data.source.LocalDataSource;
 import com.goldze.mvvmhabit.data.source.http.service.DemoApiService;
 
-import me.goldze.mvvmhabit.utils.SPUtils;
+import com.leewg.mvvm.utils.SPUtils;
 
 /**
  * 本地数据源，可配合Room框架使用

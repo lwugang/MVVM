@@ -1,8 +1,6 @@
 package com.goldze.mvvmhabit.ui.main;
 
 import android.app.Application;
-import android.arch.lifecycle.MutableLiveData;
-import android.databinding.ObservableBoolean;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 
@@ -14,10 +12,10 @@ import com.goldze.mvvmhabit.ui.tab_bar.activity.TabBarActivity;
 import com.goldze.mvvmhabit.ui.viewpager.activity.ViewPagerActivity;
 import com.goldze.mvvmhabit.ui.vp_frg.ViewPagerGroupFragment;
 
-import me.goldze.mvvmhabit.base.BaseViewModel;
-import me.goldze.mvvmhabit.binding.command.BindingAction;
-import me.goldze.mvvmhabit.binding.command.BindingCommand;
-import me.goldze.mvvmhabit.bus.event.SingleLiveEvent;
+import com.leewg.mvvm.base.BaseViewModel;
+import com.leewg.mvvm.binding.command.BindingAction;
+import com.leewg.mvvm.binding.command.BindingCommand;
+import com.leewg.mvvm.bus.event.SingleLiveEvent;
 
 /**
  * Created by goldze on 2017/7/17.

@@ -3,7 +3,7 @@ package com.goldze.mvvmhabit.data.source.http.service;
 import com.goldze.mvvmhabit.entity.DemoEntity;
 
 import io.reactivex.Observable;
-import me.goldze.mvvmhabit.http.BaseResponse;
+import com.leewg.mvvm.http.BaseResponse;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
