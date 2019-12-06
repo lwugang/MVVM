@@ -21,7 +21,7 @@ import com.leewg.mvvm.utils.constant.MemoryConstants;
 import com.leewg.mvvm.utils.constant.TimeConstants;
 
 /**
- * Created by goldze on 2017/5/14.
+ * Created by leewg on 2017/5/14.
  * 转换相关工具类
  */
 public final class ConvertUtils {

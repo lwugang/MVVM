@@ -35,7 +35,7 @@
 #-------------------------------------------MVVMHabit混淆规则----------------------------------------------
 #---------------------------------1.实体类---------------------------------
 
--keep class com.leewg.mvvm.http.BaseResponse { *; }
+-keep class com.leewg.mvvm.data.BaseResponse { *; }
 
 #-------------------------------------------------------------------------
 
@@ -136,8 +136,8 @@
 #---------------------------------4.反射相关的类和方法-----------------------
 -keep public class * extends com.leewg.mvvm.base.BaseActivity{ *; }
 -keep public class * extends com.leewg.mvvm.base.BaseFragment{ *; }
--keep public class * extends com.leewg.mvvm.binding.command.BindingCommand{ *; }
--keep public class * extends com.leewg.mvvm.binding.command.ResponseCommand{ *; }
+-keep public class * extends com.leewg.mvvm.ui.binding.command.BindingCommand{ *; }
+-keep public class * extends com.leewg.mvvm.ui.binding.command.ResponseCommand{ *; }
 
 
 #----------------------------------------------------------------------------

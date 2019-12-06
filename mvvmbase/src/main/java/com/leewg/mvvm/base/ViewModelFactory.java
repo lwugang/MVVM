@@ -8,7 +8,7 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.support.v4.app.FragmentActivity;
 
 /**
- * Created by goldze on 2018/9/30.
+ * Created by leewg on 2018/9/30.
  */
 
 public class ViewModelFactory extends ViewModelProvider.NewInstanceFactory {

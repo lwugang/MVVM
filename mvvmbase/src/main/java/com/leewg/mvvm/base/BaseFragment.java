@@ -25,7 +25,7 @@ import com.leewg.mvvm.bus.Messenger;
 import com.leewg.mvvm.utils.MaterialDialogUtils;
 
 /**
- * Created by goldze on 2017/6/15.
+ * Created by leewg on 2017/6/15.
  */
 public abstract class BaseFragment<V extends ViewDataBinding, VM extends BaseViewModel> extends RxFragment implements IBaseView {
     protected V binding;

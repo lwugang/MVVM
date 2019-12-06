@@ -7,11 +7,10 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.WindowManager;
 
+import com.leewg.mvvm.R;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 
 import java.lang.ref.WeakReference;
-
-import me.goldze.mvvmhabit.R;
 
 
 /**

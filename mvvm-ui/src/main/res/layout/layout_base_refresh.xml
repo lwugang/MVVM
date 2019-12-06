@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.leewg.mvvm.ui.list.BaseListViewModel" />
+    </data>
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true">
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:overScrollMode="never"
+            app:itemBinding="@{model.itemBinding}"
+            app:items="@{model.items}"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+</layout>

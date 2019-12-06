@@ -58,7 +58,7 @@ import com.leewg.mvvm.utils.compression.Luban;
 import static com.leewg.mvvm.utils.Utils.getContext;
 
 /**
- * Created by goldze on 2017/7/17.
+ * Created by leewg on 2017/7/17.
  * 图片相关工具类,包含图片压缩,图片缩放,图片裁剪等功能
  */
 public class ImageUtils {

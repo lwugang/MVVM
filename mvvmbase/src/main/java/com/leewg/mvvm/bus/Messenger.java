@@ -1,15 +1,15 @@
 package com.leewg.mvvm.bus;
 
 
+import com.leewg.mvvm.command.BindingAction;
+import com.leewg.mvvm.command.BindingConsumer;
+
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-
-import com.leewg.mvvm.binding.command.BindingAction;
-import com.leewg.mvvm.binding.command.BindingConsumer;
 
 /**
  * About : kelin的Messenger

@@ -1,7 +1,7 @@
 package com.leewg.mvvm.utils;
 
 /**
- * Created by goldze on 2017/5/14.
+ * Created by leewg on 2017/5/14.
  * 字符串相关工具类
  */
 public final class StringUtils {

@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 import com.leewg.mvvm.utils.constant.RegexConstants;
 
 /**
- * Created by goldze on 2017/6/19.
+ * Created by leewg on 2017/6/19.
  * 正则相关工具类
  */
 public final class RegexUtils {

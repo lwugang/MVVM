@@ -18,7 +18,7 @@ import android.widget.Toast;
 import java.lang.ref.WeakReference;
 
 /**
- * Created by goldze on 2017/5/14.
+ * Created by leewg on 2017/5/14.
  * 吐司工具类
  */
 public final class ToastUtils {
