@@ -1,6 +1,8 @@
-package com.leewg.mvvm.base;
+package com.leewg.mvvm.ui;
 
 import android.support.annotation.NonNull;
+
+import com.leewg.mvvm.base.BaseViewModel;
 
 /**
  * Create Author：goldze

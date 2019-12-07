@@ -1,4 +1,4 @@
-package com.leewg.mvvm.base;
+package com.leewg.mvvm.ui;
 
 import android.support.annotation.NonNull;
 

@@ -2,6 +2,7 @@ package com.leewg.mvvm.base;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModel;
+import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
@@ -14,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.leewg.mvvm.provider.AppService;
 import com.trello.rxlifecycle2.components.support.RxFragment;
 
 import java.lang.reflect.ParameterizedType;
@@ -88,9 +90,9 @@ public abstract class BaseFragment<V extends ViewDataBinding, VM extends BaseVie
         if (viewModel == null) {
             Class modelClass;
             Type type = getClass().getGenericSuperclass();
-            if (type instanceof ParameterizedType) {
+            try {
                 modelClass = (Class) ((ParameterizedType) type).getActualTypeArguments()[1];
-            } else {
+            } catch (Exception e) {
                 //如果没有指定泛型参数，则默认使用BaseViewModel
                 modelClass = BaseViewModel.class;
             }
@@ -280,6 +282,7 @@ public abstract class BaseFragment<V extends ViewDataBinding, VM extends BaseVie
      * @return
      */
     public <T extends ViewModel> T createViewModel(Fragment fragment, Class<T> cls) {
-        return ViewModelProviders.of(fragment).get(cls);
+        return ViewModelProviders.of(fragment, (ViewModelProvider.Factory) AppService.getService().
+                getAppService(AppService.VIEW_MODEL_FACTORY_SERVICE)).get(cls);
     }
 }

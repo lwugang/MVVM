@@ -55,4 +55,5 @@ dependencies {
     api rootProject.ext.dependencies["lifecycle-extensions"]
     annotationProcessor rootProject.ext.dependencies["lifecycle-compiler"]
     implementation project(':mvvmbase')
+    implementation project(':mvvm-data')
 }

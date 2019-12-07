@@ -1,9 +1,9 @@
 package com.leewg.mvvm.ui.list;
 
-import android.app.Application;
-import android.databinding.ViewDataBinding;
+import android.arch.lifecycle.ViewModel;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,10 +17,9 @@ import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadmoreListener;
 
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
 import java.util.List;
 
+import me.tatarka.bindingcollectionadapter2.ItemBinding;
 
 
 /**
@@ -30,14 +29,7 @@ import java.util.List;
  * @email 13480020053@163.com
  */
 public abstract class BaseListFragment<VM extends BaseListViewModel>
-        extends BaseFragment<LayoutBaseRefreshBinding, VM> implements OnRefreshLoadmoreListener {
-    static final int STATE_NORMAL = 0x0;
-    static final int STATE_REFRESH = 0x1;
-    static final int STATE_LOAD_MORE = 0x2;
-
-    static final int PAGE_SIZE = 20;
-    int currentPage = 1;
-    int currentState = STATE_NORMAL;
+        extends BaseFragment<LayoutBaseRefreshBinding, VM> implements OnRefreshLoadmoreListener, BaseListViewModel.OnBindExtraListener {
 
     SmartRefreshLayout refreshLayout;
 
@@ -47,19 +39,13 @@ public abstract class BaseListFragment<VM extends BaseListViewModel>
     }
 
     @Override
-    public VM initViewModel() {
-        try {
-            Type type = getClass().getGenericSuperclass();
-            Class modelClass = (Class) ((ParameterizedType) type).getActualTypeArguments()[0];
-            return (VM) modelClass.getConstructor(Application.class, int.class, int.class).newInstance(getActivity().getApplication(),
-                    getItemId(), getItemLayoutResId());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return super.initViewModel();
+    public <T extends ViewModel> T createViewModel(Fragment fragment, Class<T> cls) {
+        BaseListViewModel baseListViewModel = (BaseListViewModel)super.createViewModel(fragment, cls);
+        baseListViewModel.bindingItem(getItemVariableId(),getItemLayoutResId(),this);
+        return (T)baseListViewModel;
     }
 
-    protected abstract int getItemId();
+    protected abstract int getItemVariableId();
 
     protected abstract int getItemLayoutResId();
 
@@ -72,11 +58,17 @@ public abstract class BaseListFragment<VM extends BaseListViewModel>
     public void initViewObservable() {
         super.initViewObservable();
         refreshLayout = binding.refreshLayout;
-        viewModel.itemListLiveData.observe(this, itemLists -> {
-            setDataChange((List) itemLists);
+        // 加载成功
+        viewModel.loadSuccess.observe(this, itemLists -> {
+            setDataChange(itemLists);
         });
+        // 加载失败
         viewModel.loadError.observe(this, aBoolean -> {
             setListError(null);
+        });
+        // 通知界面刷新
+        viewModel.notifyViewRefresh.observe(this, aBoolean -> {
+            startRefresh();
         });
     }
 
@@ -111,69 +103,18 @@ public abstract class BaseListFragment<VM extends BaseListViewModel>
         refreshLayout.autoRefresh();
     }
 
-    /**
-     * 是否处于刷新
-     *
-     * @return
-     */
-    protected boolean isRefresh() {
-        return currentState == STATE_REFRESH;
-    }
-
-    /**
-     * 是否处于加载更多
-     *
-     * @return
-     */
-    protected boolean isLoadMore() {
-        return currentState == STATE_LOAD_MORE;
-    }
-
-    /**
-     * 加载更多
-     *
-     * @param currentPage
-     */
-    protected abstract void onLoadMore(int currentPage);
-
-    /**
-     * 开始刷新
-     *
-     * @param currentPage
-     */
-    protected abstract void onRefresh(int currentPage);
-
     @Override
     public void onRefresh(RefreshLayout refreshlayout) {
         if (!NetworkUtil.isNetworkAvailable(getContext())) {
             return;
         }
-        currentState = STATE_REFRESH;
-        currentPage = 1;
-        onRefresh(currentPage);
+        viewModel.refresh();
     }
 
 
     @Override
     public void onLoadmore(RefreshLayout refreshlayout) {
-//        if (viewModel.getItems().size() >= getTotalCount()) {
-//            refreshlayout.finishLoadmore(500, true);
-//            return;
-//        }
-        currentState = STATE_LOAD_MORE;
-        currentPage++;
-        onLoadMore(currentPage);
-    }
-
-    /**
-     * 获取总数
-     *
-     * @return
-     */
-    protected abstract int getTotalCount();
-
-    public static int getPageSize() {
-        return PAGE_SIZE;
+        viewModel.next();
     }
 
     /**
@@ -185,20 +126,20 @@ public abstract class BaseListFragment<VM extends BaseListViewModel>
         setDataChange(datas, true);
     }
 
+
     /**
      * 通知数据改变
      *
      * @param datas
      */
     protected void setDataChange(List datas, boolean showNoDataTips) {
-        if (isLoadMore()) {
+        if (viewModel.isLoadMore()) {
             viewModel.addItems(datas);
-            refreshLayout.finishLoadmore(500,true);
+            refreshLayout.finishLoadmore(500, true);
         } else {
             viewModel.setItems(datas);
             refreshLayout.finishRefresh();
         }
-        currentState = STATE_NORMAL;
     }
 
     /**
@@ -211,7 +152,8 @@ public abstract class BaseListFragment<VM extends BaseListViewModel>
         }
     }
 
-    public int getCurrentPage() {
-        return currentPage;
+    @Override
+    public void onBindExtra(ItemBinding itemBinding) {
+
     }
 }
