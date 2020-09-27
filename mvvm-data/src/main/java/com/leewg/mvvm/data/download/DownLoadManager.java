@@ -1,7 +1,7 @@
 package com.leewg.mvvm.data.download;
 
 import com.leewg.mvvm.data.http.interceptor.ProgressInterceptor;
-import com.leewg.mvvm.utils.NetworkUtil;
+import com.leewg.mvvm.tools.NetworkUtil;
 
 import java.util.concurrent.TimeUnit;
 

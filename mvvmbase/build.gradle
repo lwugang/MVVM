@@ -51,13 +51,6 @@ dependencies {
     api rootProject.ext.dependencies["adapter-rxjava"]
     //json解析
     api rootProject.ext.dependencies.gson
-    //material-dialogs
-    api(rootProject.ext.dependencies["material-dialogs-core"]) {
-        exclude group: 'com.android.support'
-    }
-    api(rootProject.ext.dependencies["material-dialogs-commons"]) {
-        exclude group: 'com.android.support'
-    }
     //glide图片加载库
     api (rootProject.ext.dependencies.glide){
         exclude group: 'com.android.support'
@@ -74,4 +67,6 @@ dependencies {
     api rootProject.ext.dependencies["lifecycle-extensions"]
     annotationProcessor rootProject.ext.dependencies["lifecycle-compiler"]
     implementation project(':mvvm-protocol')
+    api project(path: ':mvvm-tools')
+    api project(path: ':mvvm-widget')
 }

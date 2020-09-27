@@ -2,11 +2,11 @@ package com.leewg.mvvm.base;
 
 import android.app.Activity;
 import android.app.Application;
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 
-import com.leewg.mvvm.utils.Utils;
+import com.leewg.mvvm.tools.Utils;
+
 
 /**
  * Created by leewg on 2017/6/15.

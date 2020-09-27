@@ -2,9 +2,10 @@ package com.leewg.mvvm.data.http.interceptor;
 
 import android.content.Context;
 
+import com.leewg.mvvm.tools.NetworkUtil;
+
 import java.io.IOException;
 
-import com.leewg.mvvm.utils.NetworkUtil;
 import okhttp3.CacheControl;
 import okhttp3.Interceptor;
 import okhttp3.Request;

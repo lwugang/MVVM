@@ -9,8 +9,7 @@ import com.leewg.mvvm.data.http.interceptor.BaseInterceptor;
 import com.leewg.mvvm.data.http.interceptor.CacheInterceptor;
 import com.leewg.mvvm.data.http.interceptor.logging.Level;
 import com.leewg.mvvm.data.http.interceptor.logging.LoggingInterceptor;
-import com.leewg.mvvm.utils.KLog;
-import com.leewg.mvvm.utils.Utils;
+import com.leewg.mvvm.tools.Utils;
 
 import java.io.File;
 import java.util.HashMap;

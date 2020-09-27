@@ -4,10 +4,10 @@ package com.leewg.mvvm.data;
 import io.reactivex.observers.DisposableObserver;
 
 import com.leewg.mvvm.data.exception.ResponseThrowable;
-import com.leewg.mvvm.utils.KLog;
-import com.leewg.mvvm.utils.NetworkUtil;
-import com.leewg.mvvm.utils.ToastUtils;
-import com.leewg.mvvm.utils.Utils;
+import com.leewg.mvvm.tools.KLog;
+import com.leewg.mvvm.tools.NetworkUtil;
+import com.leewg.mvvm.tools.ToastUtils;
+import com.leewg.mvvm.tools.Utils;
 
 import java.net.ConnectException;
 
@@ -48,9 +48,12 @@ public abstract class ApiDisposableObserver<T> extends DisposableObserver<T> {
     @Override
     protected void onStart() {
         super.onStart();
-        if (!isCheckNetwork()) {
-            this.onStart(false);
-            onError(new ConnectException());
+        if (isCheckNetwork()) {
+            boolean networkAvailable = NetworkUtil.isNetworkAvailable(Utils.getContext());
+            this.onStart(networkAvailable);
+            if (!networkAvailable) {
+                onError(new ConnectException());
+            }
         } else {
             this.onStart(true);
         }
@@ -62,7 +65,7 @@ public abstract class ApiDisposableObserver<T> extends DisposableObserver<T> {
      * @return
      */
     protected boolean isCheckNetwork() {
-        return NetworkUtil.isNetworkAvailable(Utils.getContext());
+        return true;
     }
 
     @Override

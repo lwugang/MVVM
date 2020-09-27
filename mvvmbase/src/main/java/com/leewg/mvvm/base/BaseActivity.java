@@ -11,6 +11,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.leewg.mvvm.widget.MaterialDialogUtils;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 
 import java.lang.reflect.ParameterizedType;
@@ -19,7 +20,6 @@ import java.util.Map;
 
 import com.leewg.mvvm.base.BaseViewModel.ParameterField;
 import com.leewg.mvvm.bus.Messenger;
-import com.leewg.mvvm.utils.MaterialDialogUtils;
 
 
 /**

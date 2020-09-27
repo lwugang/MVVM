@@ -2,8 +2,6 @@ package com.leewg.mvvm.base;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModel;
-import android.arch.lifecycle.ViewModelProvider;
-import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
@@ -15,16 +13,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.leewg.mvvm.provider.AppService;
+import com.leewg.mvvm.base.BaseViewModel.ParameterField;
+import com.leewg.mvvm.bus.Messenger;
+import com.leewg.mvvm.widget.MaterialDialogUtils;
 import com.trello.rxlifecycle2.components.support.RxFragment;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.Map;
-
-import com.leewg.mvvm.base.BaseViewModel.ParameterField;
-import com.leewg.mvvm.bus.Messenger;
-import com.leewg.mvvm.utils.MaterialDialogUtils;
 
 /**
  * Created by leewg on 2017/6/15.

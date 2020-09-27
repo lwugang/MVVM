@@ -8,6 +8,7 @@ import android.util.Log;
 import com.leewg.mvvm.app.http.AppApiRepository;
 import com.leewg.mvvm.command.BindingAction;
 import com.leewg.mvvm.command.BindingCommand;
+import com.leewg.mvvm.tools.MD5Utils;
 
 import java.util.HashMap;
 import java.util.Map;

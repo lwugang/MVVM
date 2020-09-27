@@ -10,9 +10,9 @@ import android.view.ViewGroup;
 
 import com.leewg.mvvm.BR;
 import com.leewg.mvvm.base.BaseFragment;
+import com.leewg.mvvm.tools.NetworkUtil;
 import com.leewg.mvvm.ui.R;
 import com.leewg.mvvm.ui.databinding.LayoutBaseRefreshBinding;
-import com.leewg.mvvm.utils.NetworkUtil;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadmoreListener;
