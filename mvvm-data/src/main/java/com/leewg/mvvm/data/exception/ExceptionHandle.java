@@ -1,4 +1,4 @@
-package com.leewg.mvvm.data;
+package com.leewg.mvvm.data.exception;
 
 import com.google.gson.JsonParseException;
 import com.google.gson.stream.MalformedJsonException;

@@ -1,4 +1,4 @@
-package com.leewg.mvvm.data;
+package com.leewg.mvvm.data.exception;
 
 /**
  * Created by leewg on 2017/5/11.

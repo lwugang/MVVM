@@ -17,6 +17,7 @@ import java.util.Map;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
+
 import com.leewg.mvvm.bus.event.SingleLiveEvent;
 
 /**
@@ -29,6 +30,8 @@ public class BaseViewModel<M extends BaseModel> extends AndroidViewModel impleme
     private WeakReference<LifecycleProvider> lifecycle;
     //管理RxJava，主要针对RxJava异步操作造成的内存泄漏
     private CompositeDisposable mCompositeDisposable;
+    // 是否销毁了
+    private boolean isDestroyed;
 
     public BaseViewModel(@NonNull Application application) {
         this(application, null);
@@ -47,8 +50,18 @@ public class BaseViewModel<M extends BaseModel> extends AndroidViewModel impleme
         mCompositeDisposable.add(disposable);
     }
 
+    protected void removeSubscribe(Disposable disposable) {
+        if (mCompositeDisposable != null) {
+            mCompositeDisposable.remove(disposable);
+        }
+    }
+
     public M getModel() {
         return model;
+    }
+
+    public boolean isDestroyed() {
+        return isDestroyed;
     }
 
     /**
@@ -151,10 +164,12 @@ public class BaseViewModel<M extends BaseModel> extends AndroidViewModel impleme
 
     @Override
     public void onCreate() {
+        isDestroyed = false;
     }
 
     @Override
     public void onDestroy() {
+        isDestroyed = true;
     }
 
     @Override

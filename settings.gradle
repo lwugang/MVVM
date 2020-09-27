@@ -1,1 +1,2 @@
 include ':app', ':mvvmbase', ':mvvm-ui', ':mvvm-data'
+include ':mvvm-protocol'

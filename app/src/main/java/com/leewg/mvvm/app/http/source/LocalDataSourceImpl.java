@@ -1,10 +1,10 @@
-package com.leewg.mvvm.data.http.source.local;
+package com.leewg.mvvm.app.http.source;
 
 /**
  * 本地数据源，可配合Room框架使用
  * Created by leewg on 2019/3/26.
  */
-public class LocalDataSourceImpl implements LocalDataSource {
+public class LocalDataSourceImpl implements ILocalDataSource {
     private volatile static LocalDataSourceImpl INSTANCE = null;
 
     public static LocalDataSourceImpl getInstance() {
@@ -18,9 +18,6 @@ public class LocalDataSourceImpl implements LocalDataSource {
         return INSTANCE;
     }
 
-    public static void destroyInstance() {
-        INSTANCE = null;
-    }
 
     private LocalDataSourceImpl() {
         //数据库Helper构建

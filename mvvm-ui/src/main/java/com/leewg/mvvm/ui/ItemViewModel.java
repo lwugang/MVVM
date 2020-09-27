@@ -2,6 +2,8 @@ package com.leewg.mvvm.ui;
 
 import android.support.annotation.NonNull;
 
+import com.leewg.mvvm.base.BaseViewModel;
+
 /**
  * ItemViewModel
  * Created by leewg on 2018/10/3.

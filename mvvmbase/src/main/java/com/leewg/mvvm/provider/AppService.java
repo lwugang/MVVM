@@ -1,9 +1,15 @@
 package com.leewg.mvvm.provider;
 
+import com.leewg.mvvm.protocol.INetworkProtocol;
+
 import java.util.HashMap;
 
 public final class AppService {
-    public static final String VIEW_MODEL_FACTORY_SERVICE = "VIEW_MODEL_FACTORY_SERVICE";
+
+    public INetworkProtocol getNetworkProtocol() {
+        return AutoServiceLazySingleton.get(INetworkProtocol.class);
+    }
+
     private static AppService service = new AppService();
 
     private HashMap<String, Object> serviceMap;

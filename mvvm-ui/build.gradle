@@ -6,6 +6,7 @@ android {
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode rootProject.ext.android.versionCode
         versionName rootProject.ext.android.versionName
+        javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }
     }
     dataBinding {
         enabled true
@@ -56,4 +57,5 @@ dependencies {
     annotationProcessor rootProject.ext.dependencies["lifecycle-compiler"]
     implementation project(':mvvmbase')
     implementation project(':mvvm-data')
+
 }

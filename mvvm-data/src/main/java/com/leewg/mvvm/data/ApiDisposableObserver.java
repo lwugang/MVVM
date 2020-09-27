@@ -2,10 +2,14 @@ package com.leewg.mvvm.data;
 
 
 import io.reactivex.observers.DisposableObserver;
+
+import com.leewg.mvvm.data.exception.ResponseThrowable;
 import com.leewg.mvvm.utils.KLog;
 import com.leewg.mvvm.utils.NetworkUtil;
 import com.leewg.mvvm.utils.ToastUtils;
 import com.leewg.mvvm.utils.Utils;
+
+import java.net.ConnectException;
 
 /**
  * Created by leewg on 2017/5/10.
@@ -32,15 +36,33 @@ public abstract class ApiDisposableObserver<T> extends DisposableObserver<T> {
         ToastUtils.showShort("网络异常");
     }
 
+    /**
+     * 开始执行
+     *
+     * @param success 是否正常启动
+     */
+    public void onStart(boolean success) {
+
+    }
+
     @Override
-    public void onStart() {
+    protected void onStart() {
         super.onStart();
-        ToastUtils.showShort("http is start");
-        // if  NetworkAvailable no !   must to call onCompleted
-        if (!NetworkUtil.isNetworkAvailable(Utils.getContext())) {
-            KLog.d("无网络，读取缓存数据");
-            onComplete();
+        if (!isCheckNetwork()) {
+            this.onStart(false);
+            onError(new ConnectException());
+        } else {
+            this.onStart(true);
         }
+    }
+
+    /**
+     * 网络是否可用校验
+     *
+     * @return
+     */
+    protected boolean isCheckNetwork() {
+        return NetworkUtil.isNetworkAvailable(Utils.getContext());
     }
 
     @Override
@@ -49,11 +71,11 @@ public abstract class ApiDisposableObserver<T> extends DisposableObserver<T> {
         switch (baseResponse.getCode()) {
             case CodeRule.CODE_200:
                 //请求成功, 正确的操作方式
-                onResult((T) baseResponse.getResult());
+                onResult((T) baseResponse.getData());
                 break;
             case CodeRule.CODE_220:
                 // 请求成功, 正确的操作方式, 并消息提示
-                onResult((T) baseResponse.getResult());
+                onResult((T) baseResponse.getData());
                 break;
             case CodeRule.CODE_300:
                 //请求失败，不打印Message
@@ -94,7 +116,7 @@ public abstract class ApiDisposableObserver<T> extends DisposableObserver<T> {
 
     public static final class CodeRule {
         //请求成功, 正确的操作方式
-        static final int CODE_200 = 200;
+        static final int CODE_200 = 1;
         //请求成功, 消息提示
         static final int CODE_220 = 220;
         //请求失败，不打印Message

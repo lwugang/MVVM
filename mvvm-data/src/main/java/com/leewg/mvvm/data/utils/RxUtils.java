@@ -3,8 +3,7 @@ package com.leewg.mvvm.data.utils;
 import android.content.Context;
 import android.support.v4.app.Fragment;
 
-import com.leewg.mvvm.data.BaseResponse;
-import com.leewg.mvvm.data.ExceptionHandle;
+import com.leewg.mvvm.data.exception.ExceptionHandle;
 import com.trello.rxlifecycle2.LifecycleProvider;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 
@@ -70,7 +69,6 @@ public class RxUtils {
     }
 
     public static ObservableTransformer exceptionTransformer() {
-
         return new ObservableTransformer() {
             @Override
             public ObservableSource apply(Observable observable) {
@@ -87,14 +85,4 @@ public class RxUtils {
             return Observable.error(ExceptionHandle.handleException(t));
         }
     }
-
-    private static class HandleFuc<T> implements Function<BaseResponse<T>, T> {
-        @Override
-        public T apply(BaseResponse<T> response) {
-            if (!response.isOk())
-                throw new RuntimeException(!"".equals(response.getCode() + "" + response.getMessage()) ? response.getMessage() : "");
-            return response.getResult();
-        }
-    }
-
 }

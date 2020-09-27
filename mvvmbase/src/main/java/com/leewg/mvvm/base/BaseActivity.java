@@ -61,6 +61,9 @@ public abstract class BaseActivity<V extends ViewDataBinding, VM extends BaseVie
         if (binding != null) {
             binding.unbind();
         }
+        if (dialog != null) {
+            dialog.dismiss();
+        }
     }
 
     /**
