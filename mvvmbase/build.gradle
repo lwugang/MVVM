@@ -69,4 +69,7 @@ dependencies {
     implementation project(':mvvm-protocol')
     api project(path: ':mvvm-tools')
     api project(path: ':mvvm-widget')
+
+
+    api 'org.aspectj:aspectjrt:1.8.+'
 }
