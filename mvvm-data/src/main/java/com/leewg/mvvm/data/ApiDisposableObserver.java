@@ -29,7 +29,7 @@ public abstract class ApiDisposableObserver<T> extends DisposableObserver<T> {
         e.printStackTrace();
         if (e instanceof ResponseThrowable) {
             ResponseThrowable rError = (ResponseThrowable) e;
-            ToastUtils.showShort(rError.message);
+            ToastUtils.showShort(rError.getMessage());
             return;
         }
         //其他全部甩锅网络异常
@@ -71,57 +71,17 @@ public abstract class ApiDisposableObserver<T> extends DisposableObserver<T> {
     @Override
     public void onNext(Object o) {
         BaseResponse baseResponse = (BaseResponse) o;
-        switch (baseResponse.getCode()) {
-            case CodeRule.CODE_200:
-                //请求成功, 正确的操作方式
-                onResult((T) baseResponse.getData());
-                break;
-            case CodeRule.CODE_220:
-                // 请求成功, 正确的操作方式, 并消息提示
-                onResult((T) baseResponse.getData());
-                break;
-            case CodeRule.CODE_300:
-                //请求失败，不打印Message
-                KLog.e("请求失败");
-                ToastUtils.showShort("错误代码:", baseResponse.getCode());
-                break;
-            case CodeRule.CODE_330:
-                //请求失败，打印Message
-                ToastUtils.showShort(baseResponse.getMessage());
-                break;
-            case CodeRule.CODE_500:
-                //服务器内部异常
-                ToastUtils.showShort("错误代码:", baseResponse.getCode());
-                break;
-            case CodeRule.CODE_503:
-                //参数为空
-                KLog.e("参数为空");
-                break;
-            case CodeRule.CODE_502:
-                //没有数据
-                KLog.e("没有数据");
-                break;
-            case CodeRule.CODE_510:
-                //无效的Token，提示跳入登录页
-                ToastUtils.showShort("token已过期，请重新登录");
-                break;
-            case CodeRule.CODE_530:
-                ToastUtils.showShort("请先登录");
-                break;
-            case CodeRule.CODE_551:
-                ToastUtils.showShort("错误代码:", baseResponse.getCode());
-                break;
-            default:
-                ToastUtils.showShort("错误代码:", baseResponse.getCode());
-                break;
+        if (baseResponse.getCode() != CodeRule.CODE_200) {
+            onError(new ResponseThrowable(baseResponse.getMessage()));
+            return;
         }
+        //请求成功, 正确的操作方式
+        onResult((T) baseResponse.getData());
     }
 
     public static final class CodeRule {
         //请求成功, 正确的操作方式
         static final int CODE_200 = 1;
-        //请求成功, 消息提示
-        static final int CODE_220 = 220;
         //请求失败，不打印Message
         static final int CODE_300 = 300;
         //请求失败，打印Message

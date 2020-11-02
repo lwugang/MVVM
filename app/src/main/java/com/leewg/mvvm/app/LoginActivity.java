@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentActivity;
 
 import com.leewg.mvvm.app.databinding.ActivityLoginBinding;
 import com.leewg.mvvm.base.BaseActivity;
+import com.leewg.mvvm.provider.AppService;
 
 
 /**

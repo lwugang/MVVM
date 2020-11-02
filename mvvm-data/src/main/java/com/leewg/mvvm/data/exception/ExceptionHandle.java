@@ -61,7 +61,7 @@ public class ExceptionHandle {
             ex.message = "解析错误";
             return ex;
         } else if (e instanceof ConnectException) {
-            ex = new ResponseThrowable(e, ERROR.NETWORD_ERROR);
+            ex = new ResponseThrowable(e, ERROR.NETWORK_ERROR);
             ex.message = "连接失败";
             return ex;
         } else if (e instanceof javax.net.ssl.SSLException) {
@@ -103,7 +103,7 @@ public class ExceptionHandle {
         /**
          * 网络错误
          */
-        public static final int NETWORD_ERROR = 1002;
+        public static final int NETWORK_ERROR = 1002;
         /**
          * 协议出错
          */

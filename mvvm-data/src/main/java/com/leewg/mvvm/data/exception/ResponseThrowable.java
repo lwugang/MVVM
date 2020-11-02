@@ -12,4 +12,14 @@ public class ResponseThrowable extends Exception {
         super(throwable);
         this.code = code;
     }
+
+    public ResponseThrowable(String message) {
+        super(message);
+        this.message = message;
+    }
+
+    @Override
+    public String getMessage() {
+        return message;
+    }
 }

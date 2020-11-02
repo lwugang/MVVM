@@ -10,7 +10,7 @@ import com.leewg.mvvm.app.http.source.HttpDataSourceImpl;
 import com.leewg.mvvm.app.http.source.IHttpDataSource;
 import com.leewg.mvvm.app.http.source.ILocalDataSource;
 import com.leewg.mvvm.app.http.source.LocalDataSourceImpl;
-import com.leewg.mvvm.data.utils.RetrofitClient;
+import com.leewg.mvvm.provider.AppService;
 
 import java.lang.reflect.Constructor;
 
@@ -43,7 +43,7 @@ public class AppNetworkViewModelFactory extends ViewModelProvider.NewInstanceFac
 
     static AppApiRepository provideRepository() {
         //网络API服务
-        AppApiService apiService = RetrofitClient.create(URL, AppApiService.class);
+        AppApiService apiService = AppService.getService().getNetworkProtocol().createRetrofitApi(URL, AppApiService.class);
         //网络数据源
         IHttpDataSource httpDataSource = HttpDataSourceImpl.getInstance(apiService);
         //本地数据源
@@ -59,16 +59,12 @@ public class AppNetworkViewModelFactory extends ViewModelProvider.NewInstanceFac
 
     @Override
     public <T extends ViewModel> T create(Class<T> cls) {
-        return (T) createViewModel(cls, mApplication, mRepository);
-    }
-
-    ViewModel createViewModel(Class cls, Application application, AppApiRepository repository) {
         try {
             Constructor constructor = cls.getConstructor(Application.class, AppApiRepository.class);
-            return (ViewModel) constructor.newInstance(application, repository);
+            return (T) constructor.newInstance(mApplication, mRepository);
         } catch (NoSuchMethodException e) {
             try {
-                return (ViewModel) cls.getConstructor(Application.class).newInstance(application);
+                return (T) cls.getConstructor(Application.class).newInstance(mApplication);
             } catch (Exception e1) {
                 throw new IllegalArgumentException(e1);
             }

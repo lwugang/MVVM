@@ -6,7 +6,7 @@ package com.leewg.mvvm.data;
  */
 public class BaseResponse<T> {
     private int code;
-    private String message;
+    private String msg;
     private T data;
 
     public int getCode() {
@@ -22,6 +22,6 @@ public class BaseResponse<T> {
     }
 
     public String getMessage() {
-        return message;
+        return msg;
     }
 }

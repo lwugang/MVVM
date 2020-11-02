@@ -1,8 +1,10 @@
 package com.leewg.mvvm.data.utils;
 
 import android.content.Context;
+import android.content.pm.ApplicationInfo;
 import android.text.TextUtils;
 
+import com.leewg.mvvm.data.BuildConfig;
 import com.leewg.mvvm.data.cookie.CookieJarImpl;
 import com.leewg.mvvm.data.cookie.store.PersistentCookieStore;
 import com.leewg.mvvm.data.http.interceptor.BaseInterceptor;
@@ -93,14 +95,13 @@ public class RetrofitClient {
                 .sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager)
                 .addInterceptor(new LoggingInterceptor
                                 .Builder()//构建者模式
-//                        .loggable(BuildConfig.DEBUG) //是否开启日志打印
+                        .loggable((mContext.getApplicationInfo().flags& ApplicationInfo.FLAG_DEBUGGABLE)!=0) //是否开启日志打印
                                 .setLevel(Level.BASIC) //打印的等级
                                 .log(Platform.INFO) // 打印类型
                                 .request("Request") // request的Tag
                                 .response("Response")// Response的Tag
                                 .addHeader("log-header", "I am the log request header.") // 添加打印头, 注意 key 和 value 都不能是中文
-                                .build()
-                )
+                                .build())
                 .connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
                 .writeTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
                 .connectionPool(new ConnectionPool(8, 15, TimeUnit.SECONDS))
