@@ -1,11 +1,7 @@
 package com.leewg.mvvm.data;
 
-import android.app.Application;
-
 import com.google.auto.service.AutoService;
-import com.leewg.mvvm.data.http.source.ApiRepository;
 import com.leewg.mvvm.data.utils.RetrofitClient;
-import com.leewg.mvvm.protocol.IApiRepository;
 import com.leewg.mvvm.protocol.INetworkProtocol;
 
 /**

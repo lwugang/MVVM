@@ -37,7 +37,7 @@ public final class AppService {
      * @param key
      * @return
      */
-    public Object getAppService(String key) {
-        return serviceMap.get(key);
+    public <T> T getAppService(String key) {
+        return (T)serviceMap.get(key);
     }
 }
