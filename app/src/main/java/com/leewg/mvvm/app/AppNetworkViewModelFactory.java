@@ -18,7 +18,7 @@ import java.lang.reflect.Constructor;
  * Created by leewg on 2018/9/30.
  */
 public class AppNetworkViewModelFactory extends ViewModelProvider.NewInstanceFactory {
-    public static final String URL = "https://uat-bc.jtexpress.com.cn/bc/"; //网络请求地址
+    public static final String URL = ""; //网络请求地址
 
     private static volatile AppNetworkViewModelFactory INSTANCE;
 
