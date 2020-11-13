@@ -39,9 +39,6 @@ public class LoginViewModel extends AppNetworkBaseViewModel {
         @Override
         public void call() {
             Map<String, String> map = new HashMap<>();
-            map.put("account", userName.get().trim());
-            map.put("macAddr", MD5Utils.MD5Encode("123132121"));
-            map.put("password", MD5Utils.MD5Encode(password.get().trim(), "utf8"));
             subscribeWithLoading(getModel().login(map), data -> {
                 Log.e("-----------", "call: " + data);
             });
